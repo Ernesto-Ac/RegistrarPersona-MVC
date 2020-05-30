@@ -72,15 +72,16 @@ public class Controlador extends HttpServlet {
         else if(action.equalsIgnoreCase("Actualizar")){
             
             //jmmmm aqui puede dar error ya que no estoy seguro si manda String
-            dui=((String)request.getParameter("txtdui"));
             
-            String dui = request.getParameter("txtDui");
+            
+            dui=((String)request.getParameter("txtDui"));  
             String nom = request.getParameter("txtNom");
             String ape = request.getParameter("txtApe");
             
             p.setDui(dui);
             p.setNombres(nom);
             p.setApellidos(ape);
+            dao.edit(p);
             acceso=listar;
         }
         

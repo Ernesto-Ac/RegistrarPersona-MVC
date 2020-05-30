@@ -41,7 +41,7 @@ public class PersonaDAO implements CRUD{
 
     @Override
     public Persona list(String dui) {
-        String sql="select * from where dui="+dui;
+        String sql="select * from persona where dui="+dui;
         try {
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
@@ -73,7 +73,7 @@ public class PersonaDAO implements CRUD{
 
     @Override
     public boolean edit(Persona per) {
-         String sql = "update persona set dui ='"+per.getDui()+"',nombres='"+per.getNombres()+"',apellidos='"+per.getApellidos()+"'where dui=)"+per.getDui();
+         String sql = "update persona set dui ='"+per.getDui()+"',nombres='"+per.getNombres()+"',apellidos='"+per.getApellidos()+"' where dui=)"+per.getDui();
          try {
             con=cn.getConnection();
             ps=con.prepareStatement(sql);

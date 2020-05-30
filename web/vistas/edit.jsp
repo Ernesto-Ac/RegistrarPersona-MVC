@@ -28,8 +28,11 @@
                 <input type="text" name="txtNom" value="<%= p.getNombres() %>" /><br>
                 <label>Apellidos:</label>
                 <input type="text" name="txtApe" value="<%= p.getApellidos() %>" /><br>
-                <input type="hidden" name="txtdui" value="<%= p.getDui() %>">
-                <input type="submit" name="accion" value="Agregar">
+                
+                <input type="hidden" name="txtDui" value="<%= p.getDui() %>">
+                
+                <input type="submit" name="accion" value="Actualizar">
+                
                 <a href="Controlador?accion=listar">Regresar</a>
             </form>
         </div>
