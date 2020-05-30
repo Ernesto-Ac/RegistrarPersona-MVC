@@ -41,7 +41,21 @@ public class PersonaDAO implements CRUD{
 
     @Override
     public Persona list(String dui) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql="select * from where dui="+dui;
+        try {
+            con=cn.getConnection();
+            ps=con.prepareStatement(sql);
+            rs=ps.executeQuery();
+            while(rs.next()){
+                p.setDui(rs.getString("dui"));
+                p.setNombres(rs.getString("nombres"));
+                p.setApellidos(rs.getString("apellidos"));
+                
+            }
+        } catch (SQLException ex) {
+            ex.getMessage();
+        }
+        return p;
     }
 
     @Override
@@ -59,7 +73,15 @@ public class PersonaDAO implements CRUD{
 
     @Override
     public boolean edit(Persona per) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         String sql = "update persona set dui ='"+per.getDui()+"',nombres='"+per.getNombres()+"',apellidos='"+per.getApellidos()+"'where dui=)"+per.getDui();
+         try {
+            con=cn.getConnection();
+            ps=con.prepareStatement(sql);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            ex.getMessage();
+        }
+         return false;
     }
 
     @Override

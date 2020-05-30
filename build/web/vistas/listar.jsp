@@ -43,7 +43,7 @@
                         <td><%= per.getNombres()%></td>
                         <td><%= per.getApellidos()%></td>
                         <td>
-                            <a>Editar</a>
+                            <a href="Controlador?accion=editar&dui=<%= per.getDui()%>">Editar</a>
                             <a>Eliminar</a>
                             <a></a>
                             <a></a>

@@ -26,6 +26,8 @@ public class Controlador extends HttpServlet {
     String edit = "vistas/edit.jsp";
     Persona p = new Persona();
     PersonaDAO dao = new PersonaDAO();
+    //cuidado aca
+    String dui;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -63,7 +65,25 @@ public class Controlador extends HttpServlet {
             dao.add(p);
             acceso=listar;
            
+        }else if(action.equalsIgnoreCase("editar")){
+            request.setAttribute("duiper", request.getParameter("dui"));
+            acceso=edit;
         }
+        else if(action.equalsIgnoreCase("Actualizar")){
+            
+            //jmmmm aqui puede dar error ya que no estoy seguro si manda String
+            dui=((String)request.getParameter("txtdui"));
+            
+            String dui = request.getParameter("txtDui");
+            String nom = request.getParameter("txtNom");
+            String ape = request.getParameter("txtApe");
+            
+            p.setDui(dui);
+            p.setNombres(nom);
+            p.setApellidos(ape);
+            acceso=listar;
+        }
+        
         RequestDispatcher vista = request.getRequestDispatcher(acceso);
         vista.forward(request, response);
     }

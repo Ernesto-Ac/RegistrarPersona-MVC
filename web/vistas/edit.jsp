@@ -4,6 +4,8 @@
     Author     : Ernesto
 --%>
 
+<%@page import="Modelo.Persona"%>
+<%@page import="ModeloDAO.PersonaDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +14,24 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <div>
+            <%
+                PersonaDAO dao = new PersonaDAO();
+                String dui=((String)request.getAttribute("duiper"));
+                Persona p=(Persona)dao.list(dui);
+            %>
+            <h1>Modificar Persona</h1>
+            <form action="Controlador">
+                <label>DUI:</label>
+                <input type="text" name="txtDui" value="<%= p.getDui() %>" /><br>
+                <label>Nombres:</label>
+                <input type="text" name="txtNom" value="<%= p.getNombres() %>" /><br>
+                <label>Apellidos:</label>
+                <input type="text" name="txtApe" value="<%= p.getApellidos() %>" /><br>
+                <input type="hidden" name="txtdui" value="<%= p.getDui() %>">
+                <input type="submit" name="accion" value="Agregar">
+                <a href="Controlador?accion=listar">Regresar</a>
+            </form>
+        </div>
     </body>
 </html>
