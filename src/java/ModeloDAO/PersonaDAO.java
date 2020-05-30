@@ -73,7 +73,8 @@ public class PersonaDAO implements CRUD{
 
     @Override
     public boolean edit(Persona per) {
-         String sql = "update persona set dui ='"+per.getDui()+"',nombres='"+per.getNombres()+"',apellidos='"+per.getApellidos()+"' where dui=)"+per.getDui();
+       // al final de la consulta en el where tenias =) y eso era el error    
+         String sql = "update persona set dui ='"+per.getDui()+"',nombres='"+per.getNombres()+"',apellidos='"+per.getApellidos()+"' where dui="+per.getDui();
          try {
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
