@@ -56,6 +56,7 @@ public class Controlador extends HttpServlet {
         } else if (action.equalsIgnoreCase("add")) {
             acceso = add;
         } else if (action.equalsIgnoreCase("Agregar")) {
+
             String dui = request.getParameter("txtDui");
             String nom = request.getParameter("txtNom");
             String ape = request.getParameter("txtApe");
@@ -63,28 +64,32 @@ public class Controlador extends HttpServlet {
             p.setNombres(nom);
             p.setApellidos(ape);
             dao.add(p);
-            acceso=listar;
-           
-        }else if(action.equalsIgnoreCase("editar")){
+            acceso = listar;
+
+        } else if (action.equalsIgnoreCase("editar")) {
             request.setAttribute("duiper", request.getParameter("dui"));
-            acceso=edit;
-        }
-        else if(action.equalsIgnoreCase("Actualizar")){
-            
+            acceso = edit;
+        } else if (action.equalsIgnoreCase("Actualizar")) {
+
             //jmmmm aqui puede dar error ya que no estoy seguro si manda String
-            
-            
-            dui=((String)request.getParameter("txtDui"));  
+            dui = ((String) request.getParameter("txtDui"));
+
+            String dui = request.getParameter("txtDui");
             String nom = request.getParameter("txtNom");
             String ape = request.getParameter("txtApe");
-            
+
             p.setDui(dui);
             p.setNombres(nom);
             p.setApellidos(ape);
             dao.edit(p);
+            acceso = listar;
+        } else if (action.equalsIgnoreCase("eliminar")) {
+            dui = ((String) request.getParameter("dui"));
+            p.setDui(dui);
+            dao.eliminar(dui);
             acceso=listar;
         }
-        
+
         RequestDispatcher vista = request.getRequestDispatcher(acceso);
         vista.forward(request, response);
     }

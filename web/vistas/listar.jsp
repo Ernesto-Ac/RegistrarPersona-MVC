@@ -44,7 +44,8 @@
                         <td><%= per.getApellidos()%></td>
                         <td>
                             <a href="Controlador?accion=editar&dui=<%= per.getDui()%>">Editar</a>
-                            <a>Eliminar</a>
+                            <a href="Controlador?accion=eliminar&dui=<%= per.getDui()%>">Eliminar</a>
+                           
                             <a></a>
                             <a></a>
                         </td>

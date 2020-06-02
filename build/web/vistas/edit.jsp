@@ -22,8 +22,7 @@
             %>
             <h1>Modificar Persona</h1>
             <form action="Controlador">
-                <label>DUI:</label>
-                <input type="text" name="txtDui" value="<%= p.getDui() %>" /><br>
+                
                 <label>Nombres:</label>
                 <input type="text" name="txtNom" value="<%= p.getNombres() %>" /><br>
                 <label>Apellidos:</label>

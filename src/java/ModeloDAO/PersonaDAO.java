@@ -34,7 +34,7 @@ public class PersonaDAO implements CRUD{
                 list.add(per);
             }
         } catch (SQLException ex) {
-            ex.getMessage();
+            System.out.println("Errorazo"+ex); 
         }
         return list;
     }
@@ -53,7 +53,7 @@ public class PersonaDAO implements CRUD{
                 
             }
         } catch (SQLException ex) {
-            ex.getMessage();
+            System.out.println("Errorazo"+ex); 
         }
         return p;
     }
@@ -66,7 +66,7 @@ public class PersonaDAO implements CRUD{
             ps=con.prepareStatement(sql);
             ps.executeUpdate();
         } catch (SQLException ex) {
-            ex.getMessage();
+            System.out.println("Errorazo"+ex); 
         }
         return false;
     }
@@ -80,14 +80,22 @@ public class PersonaDAO implements CRUD{
             ps=con.prepareStatement(sql);
             ps.executeUpdate();
         } catch (SQLException ex) {
-            ex.getMessage();
+            System.out.println("Errorazo"+ex); 
         }
          return false;
     }
 
     @Override
     public boolean eliminar(String dui) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "delete from persona where dui="+dui;
+        try {
+            con=cn.getConnection();
+            ps=con.prepareStatement(sql);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println("Errorazo"+ex); 
+        }
+        return false;
     }
     
 }
