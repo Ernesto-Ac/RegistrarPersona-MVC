@@ -10,16 +10,19 @@
 <%@page import="ModeloDAO.PersonaDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<link href="./bootstrap4/css/bootstrap.css" rel="stylesheet" type="text/css"/>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
     <body>
-        <div>
+        <div class="container">
+          
             <h1>Personas</h1>
-             <a href="Controlador?accion=add">Agregar Nuevo</a>
-            <table border="1">
+           
+            <a class="btn btn-success" href="Controlador?accion=add">Agregar Nuevo</a><br>  <br>
+            <table class="table table-bordered text-center" border="1">
                 <thead>
                     <tr>
                         <th>DUI</th> 
@@ -43,8 +46,8 @@
                         <td><%= per.getNombres()%></td>
                         <td><%= per.getApellidos()%></td>
                         <td>
-                            <a href="Controlador?accion=editar&dui=<%= per.getDui()%>">Editar</a>
-                            <a href="Controlador?accion=eliminar&dui=<%= per.getDui()%>">Eliminar</a>
+                            <a class="btn btn-warning" href="Controlador?accion=editar&dui=<%= per.getDui()%>">Editar</a>
+                            <a class="btn btn-danger" href="Controlador?accion=eliminar&dui=<%= per.getDui()%>">Eliminar</a>
                            
                             <a></a>
                             <a></a>
